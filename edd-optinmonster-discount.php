@@ -10,11 +10,16 @@
 class EDD_OM_Discount_For_Submission {
 
 	public function __construct() {
+		
+		if( ! function_exists( 'EDD' ) ) {
+			return;
+		}
+
 		add_action( 'optin_monster_after_lead_stored', array( $this, 'process_lead' ) );
 	}
 
 	public function process_lead( $lead, $class_object ) {
-		
+
 		$code = $this->generate_discount( $lead['lead_email'] );
 		$this->send_discount( $lead['lead_email'], $lead['lead_name'], $code );
 	}
