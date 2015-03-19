@@ -37,10 +37,10 @@ class EDD_OM_Discount_For_Submission {
 			'name'       => $email,
 			'code'       => $code,
 			'max'        => 1,
-			'amount'     => '15',
+			'amount'     => '10',
 			'start'      => '-1 day',
-			'expiration' => '+10 hours',
-			'type'       => 'flat',
+			'expiration' => '+3 days',
+			'type'       => 'percent',
 			'use_once'   => true
 		);
 		$discount_id = edd_store_discount( $details );
@@ -62,7 +62,7 @@ class EDD_OM_Discount_For_Submission {
 		} else {
 			$message .= __( 'Hello !', 'edd-om-discounts' );
 		}
-		$message .= "\n\n" . sprintf( __( 'Thank you submitting your email address! As a small thank you, here is a discount code for $15 off your purchase at %s', 'edd-om-discounts' ), home_url() );
+		$message .= "\n\n" . sprintf( __( 'Thank you submitting your email address! As a small thank you, here is a discount code for 10% off your purchase at %s', 'edd-om-discounts' ), home_url() );
 		$message .= "\n\n" . sprintf( __( 'Discount code: %s', 'edd-om-discounts' ), $code );
 
 		$emails = new EDD_EMails;
