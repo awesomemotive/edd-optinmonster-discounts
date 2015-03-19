@@ -41,7 +41,7 @@ class EDD_OM_Discount_For_Submission {
 
 	}
 
-	public function send_discount( $email = '', $name = '', #code ) {
+	public function send_discount( $email = '', $name = '', $code ) {
 
 		$subject  = sprintf( __( 'Discount code for %s', 'edd-om-discounts' ), get_bloginfo( 'name' ) );
 		$message  = '';
