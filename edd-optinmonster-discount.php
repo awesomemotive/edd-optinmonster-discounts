@@ -27,7 +27,11 @@ class EDD_OM_Discount_For_Submission {
 	public function generate_discount( $email = '' ) {
 
 		// Generate a 15 character code
-		$code    = substr( md5( $email ), 0, 15 );
+		$code = substr( md5( $email ), 0, 15 );
+
+		if( edd_get_discount_by_code( $code ) ) {
+			return; // Discount already created
+		}
 
 		$details = array(
 			'name'       => $email,
