@@ -37,8 +37,7 @@ class EDD_OM_Discount_For_Submission {
 			'start'      => '-1 day',
 			'expiration' => '+10 hours',
 			'type'       => 'flat',
-			'use_once'   => true,
-			'excluded-products' => array( 121068, 138387 )
+			'use_once'   => true
 		);
 		$discount_id = edd_store_discount( $details );
 
@@ -46,7 +45,11 @@ class EDD_OM_Discount_For_Submission {
 
 	}
 
-	public function send_discount( $email = '', $name = '', $code ) {
+	public function send_discount( $email = '', $name = '', $code = '' ) {
+
+		if( empty( $code ) ) {
+			return;
+		}
 
 		$subject  = sprintf( __( 'Discount code for %s', 'edd-om-discounts' ), get_bloginfo( 'name' ) );
 		$message  = '';
