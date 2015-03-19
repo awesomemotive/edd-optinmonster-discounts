@@ -58,9 +58,9 @@ class EDD_OM_Discount_For_Submission {
 		$subject  = sprintf( __( 'Discount code for %s', 'edd-om-discounts' ), get_bloginfo( 'name' ) );
 		$message  = '';
 		if( ! empty( $name ) ) {
-			$messabe .= sprintf( __( 'Hello %s!', 'edd-om-discounts' ), $name );
+			$message .= sprintf( __( 'Hello %s!', 'edd-om-discounts' ), $name );
 		} else {
-			$messabe .= __( 'Hello !', 'edd-om-discounts' );
+			$message .= __( 'Hello !', 'edd-om-discounts' );
 		}
 		$message .= sprintf( __( 'Thank you submitting your email address! As a small thank you, here is a discount code for $15 off your purchase at %s', 'edd-om-discounts' ), home_url() );
 		$message .= "\n\n" . sprintf( __( 'Discount code: %s', 'edd-om-discounts' ), $code );
